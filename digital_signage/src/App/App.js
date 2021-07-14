@@ -13,7 +13,12 @@ const App = () => {
   const handleEdit = () => {
     setShowing(false);
   };
-  return <div>{Showing ? <ShowPage func={handleShow} /> : <EditPage />}</div>;
+  // return <div>{Showing ? <ShowPage func={handleShow} /> : <EditPage />}</div>;
+  return (
+    <div>
+      <ShowPage />
+    </div>
+  );
 };
 
 export default ThemeDecorator(App);

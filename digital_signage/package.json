@@ -33,6 +33,7 @@
 		"dist/*"
 	],
 	"dependencies": {
+		"@emotion/core": "^11.0.0",
 		"@enact/core": "^4.0.0",
 		"@enact/i18n": "^4.0.0",
 		"@enact/moonstone": "^4.0.1",
@@ -43,6 +44,7 @@
 		"ilib": "npm:ilib-webos@^14.6.2-webos1",
 		"prop-types": "^15.6.2",
 		"react": "^17.0.1",
-		"react-dom": "^17.0.1"
+		"react-dom": "^17.0.1",
+		"react-leaf-carousel": "^2.0.3"
 	}
 }
