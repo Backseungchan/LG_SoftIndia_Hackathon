@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import Alert from "@enact/sandstone/Alert";
 import Input from "@enact/moonstone/Input";
 import Button from "@enact/sandstone/Button";
-import Changeable from "@enact/ui/Changeable";
 
 const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
   let createItem = { title: "", image: "" };
@@ -33,9 +32,10 @@ const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
         <CreateInput style={{ marginTop: "50px" }}>
           <span>title</span>
           <Input
+            required
             placeholder="Please enter a title"
-            onChange={(value) => {
-              createItem.title = value;
+            onChange={(input) => {
+              createItem.title = input.value;
             }}
           />
         </CreateInput>
@@ -43,15 +43,13 @@ const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
           <span>image url</span>
           <Input
             placeholder="Please enter a image url"
-            onChange={(value) => {
-              createItem.image = value;
+            onChange={(input) => {
+              createItem.image = input.value;
             }}
           />
         </CreateInput>
         <div>
-          <Button type="submit" onClick={handleSubmit}>
-            Create
-          </Button>
+          <Button onClick={handleSubmit}>Create</Button>
           <Button
             icon="closex"
             onClick={() => handleClickCreate(false)}

@@ -5,8 +5,7 @@ import ItemList from "../components/ItemList";
 import CreateItem from "../components/CreateItem";
 import DeleteItem from "../components/DeleteItem";
 
-const EditPage = ({ handleShow }) => {
-  const [items, setItems] = useState([]);
+const EditPage = ({ items, setItems, handleShow }) => {
   const [IsClickItem, setIsClickItem] = useState(false);
   const [isClickCreate, setIsClickCreate] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
@@ -35,7 +34,7 @@ const EditPage = ({ handleShow }) => {
           handleClickCreate={handleClickCreate}
           handleShow={handleShow}
         />
-        <ItemList handleClickItem={handleClickItem} />
+        <ItemList handleClickItem={handleClickItem} items={items} />
       </div>
     ) : (
       <CreateItem

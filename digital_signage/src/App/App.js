@@ -5,6 +5,7 @@ import EditPage from "../views/EditPage";
 import "./App.css";
 
 const App = () => {
+  const [items, setItems] = useState([]);
   const [Showing, setShowing] = useState(true);
 
   const handleShow = (where) => {
@@ -14,9 +15,9 @@ const App = () => {
   return (
     <div>
       {Showing ? (
-        <ShowPage handleShow={handleShow} />
+        <ShowPage items={items} handleShow={handleShow} />
       ) : (
-        <EditPage handleShow={handleShow} />
+        <EditPage items={items} setItems={setItems} handleShow={handleShow} />
       )}
     </div>
   );
