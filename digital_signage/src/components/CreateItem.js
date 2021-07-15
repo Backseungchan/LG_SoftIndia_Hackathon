@@ -22,6 +22,13 @@ const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
     setIsSHowDialog(true);
   };
 
+  const CreateForm = styled.form`
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `;
+
   const CreateInput = styled.div`
     width: 100%;
     display: flex;
@@ -32,29 +39,25 @@ const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
 
   return (
     <Alert open={true} title="Create new signage content">
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <CreateForm>
         <CreateInput style={{ marginTop: "50px" }}>
-          <BodyText style={{ margin: "0px" }}>TITLE</BodyText>
+          TITLE
           <Input
-            placeholder={`Please${" "}enter${" "}a${" "}title`}
+            placeholder="Please enter a title"
             onChange={(input) => {
               setItem.title = input.value;
             }}
+            style={{ width: "82%" }}
           />
         </CreateInput>
         <CreateInput>
-          <BodyText style={{ margin: "0px" }}>IMAGE URL</BodyText>
+          IMAGE URL
           <Input
-            placeholder={`Please${" "}enter${" "}a${" "}image url`}
+            placeholder="Please enter a image url"
             onChange={(input) => {
               setItem.image = input.value;
             }}
+            style={{ width: "82%" }}
           />
         </CreateInput>
         <div>
@@ -65,12 +68,12 @@ const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
             style={{ backgroundColor: "indianred" }}
           ></Button>
         </div>
-      </form>
+      </CreateForm>
       {isShowDialog && (
         <DialogUp
           title={createItem.title}
           image={createItem.image}
-          description={`Are${" "}you${" "}sure${" "}you${" "}want${" "}to${" "}add${" "}this${" "}content?`}
+          description="Are you sure you want to add this content?"
           action={handleSubmit}
           setIsSHowDialog={setIsSHowDialog}
         />

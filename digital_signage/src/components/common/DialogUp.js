@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Dialog from "@enact/moonstone/Dialog";
 import Button from "@enact/sandstone/Button";
 import ImageItem from "@enact/sandstone/ImageItem";
@@ -14,7 +14,7 @@ const DialogUp = ({ title, image, description, action, setIsSHowDialog }) => {
           <Button
             icon="closex"
             onClick={() => setIsSHowDialog(false)}
-            style={{ backgroundColor: "indianred" }}
+            style={{ backgroundColor: "indianred", color: "white" }}
           ></Button>
         </div>
       }

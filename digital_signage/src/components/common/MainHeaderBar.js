@@ -20,7 +20,7 @@ const MainHeaderBar = ({ handleShow }) => {
       <Button
         onClick={() => handleShow(false)}
         icon="gear"
-        style={{ marginRight: "100px" }}
+        style={{ marginRight: "100px", backgroundColor: "gray" }}
       />
     </div>
   );

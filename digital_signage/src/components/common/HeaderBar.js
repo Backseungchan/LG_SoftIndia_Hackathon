@@ -13,7 +13,7 @@ const HeaderBar = ({ handleClickCreate, handleShow }) => {
       <Button
         onClick={() => handleShow(true)}
         style={{
-          backgroundColor: "gray",
+          backgroundColor: "indianred",
           marginLeft: "100px",
           display: "hidden",
         }}
@@ -23,7 +23,7 @@ const HeaderBar = ({ handleClickCreate, handleShow }) => {
       <Button
         onClick={() => handleClickCreate(true)}
         icon="plus"
-        style={{ marginRight: "100px" }}
+        style={{ marginRight: "100px", backgroundColor: "gray" }}
       />
     </div>
   );
