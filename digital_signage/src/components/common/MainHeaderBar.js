@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@enact/sandstone/Button";
 
-const HeaderBar = ({ handleClickCreate, handleShow }) => {
+const MainHeaderBar = ({ handleShow }) => {
   return (
     <div
       style={{
@@ -11,22 +11,19 @@ const HeaderBar = ({ handleClickCreate, handleShow }) => {
       }}
     >
       <Button
-        onClick={() => handleShow(true)}
         style={{
-          backgroundColor: "gray",
           marginLeft: "100px",
-          display: "hidden",
+          visibility: "hidden",
         }}
-        icon="arrowhookleft"
       ></Button>
-      <h1 style={{ color: "black" }}>Edit</h1>
+      <h1 style={{ color: "black" }}>WoongYaho</h1>
       <Button
-        onClick={() => handleClickCreate(true)}
-        icon="plus"
+        onClick={() => handleShow(false)}
+        icon="gear"
         style={{ backgroundColor: "black", marginRight: "100px" }}
       />
     </div>
   );
 };
 
-export default HeaderBar;
+export default MainHeaderBar;

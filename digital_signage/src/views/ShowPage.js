@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import InfiniteCarousel from "react-leaf-carousel";
+import MainHeaderBar from "../components/common/MainHeaderBar";
 
-const ShowPage = () => {
+const ShowPage = ({ handleShow }) => {
   const items = [
     {
       id: 0,
@@ -31,9 +32,10 @@ const ShowPage = () => {
 
   return (
     <div>
+      <MainHeaderBar handleShow={handleShow} />
       <InfiniteCarousel
         dots={true}
-        autoCycle={false}
+        autoCycle={true}
         showSides={false}
         sideSize={0.1}
         slidesToScroll={1}

@@ -1,22 +1,23 @@
 import { useState } from "react";
 import ThemeDecorator from "@enact/sandstone/ThemeDecorator";
-
 import ShowPage from "../views/ShowPage";
 import EditPage from "../views/EditPage";
+import "./App.css";
 
 const App = () => {
-  const [Showing, setShowing] = useState(false);
+  const [Showing, setShowing] = useState(true);
 
-  const handleShow = () => {
-    setShowing(true);
+  const handleShow = (where) => {
+    setShowing(where);
   };
-  const handleEdit = () => {
-    setShowing(false);
-  };
-  // return <div>{Showing ? <ShowPage func={handleShow} /> : <EditPage />}</div>;
+
   return (
     <div>
-      <ShowPage />
+      {Showing ? (
+        <ShowPage handleShow={handleShow} />
+      ) : (
+        <EditPage handleShow={handleShow} />
+      )}
     </div>
   );
 };
