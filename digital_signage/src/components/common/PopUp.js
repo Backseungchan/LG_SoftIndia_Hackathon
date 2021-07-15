@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Popup from "@enact/moonstone/Popup";
 import Button from "@enact/sandstone/Button";
 
-const PopUp = ({ content, setIsPopup }) => {
+const PopUp = ({ content }) => {
   const [isOpen, setIsOpen] = useState(true);
   const handleClose = () => {
-    setIsPopup(false);
+    setIsOpen(false);
   };
 
   return (

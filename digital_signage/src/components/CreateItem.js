@@ -30,9 +30,8 @@ const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
         }}
       >
         <CreateInput style={{ marginTop: "50px" }}>
-          <span>title</span>
+          <span>TITLE</span>
           <Input
-            required
             placeholder="Please enter a title"
             onChange={(input) => {
               createItem.title = input.value;
@@ -40,7 +39,7 @@ const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
           />
         </CreateInput>
         <CreateInput>
-          <span>image url</span>
+          <span>IMAGE URL</span>
           <Input
             placeholder="Please enter a image url"
             onChange={(input) => {
