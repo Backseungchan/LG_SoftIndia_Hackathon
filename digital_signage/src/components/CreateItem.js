@@ -1,25 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
 import Alert from "@enact/sandstone/Alert";
 import Input from "@enact/moonstone/Input";
 import Button from "@enact/sandstone/Button";
+import Changeable from "@enact/ui/Changeable";
 
 const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
-  const handleSubmit = () => {};
+  let createItem = { title: "", image: "" };
+
+  const handleSubmit = () => {
+    handleClickCreate(false);
+    handleCreateItem(createItem);
+  };
+
+  const CreateInput = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  `;
 
   return (
-    <Alert open="True">
+    <Alert open={true} title="Create new signage content">
       <form
-        onSubmit={handleSubmit}
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-between",
         }}
       >
-        <Input placeholder="Please enter a title" />
-        <Button type="submit">Create</Button>
-        <Button onClick={() => handleClickCreate(false)}>Cancel</Button>
+        <CreateInput style={{ marginTop: "50px" }}>
+          <span>title</span>
+          <Input
+            placeholder="Please enter a title"
+            onChange={(value) => {
+              createItem.title = value;
+            }}
+          />
+        </CreateInput>
+        <CreateInput>
+          <span>image url</span>
+          <Input
+            placeholder="Please enter a image url"
+            onChange={(value) => {
+              createItem.image = value;
+            }}
+          />
+        </CreateInput>
+        <div>
+          <Button type="submit" onClick={handleSubmit}>
+            Create
+          </Button>
+          <Button
+            icon="closex"
+            onClick={() => handleClickCreate(false)}
+            style={{ backgroundColor: "indianred" }}
+          ></Button>
+        </div>
       </form>
     </Alert>
   );

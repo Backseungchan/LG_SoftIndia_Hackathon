@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import HeaderBar from "../components/common/HeaderBar";
 import ItemList from "../components/ItemList";
@@ -20,11 +20,13 @@ const EditPage = ({ handleShow }) => {
     setIsClickCreate(isCreate);
   };
 
+  const handleDeleteItem = () => {};
+
   const handleCreateItem = (item) => {
     setItems([...items, item]);
   };
 
-  const handleDeleteItem = () => {};
+  useEffect(() => {}, [items]);
 
   return !IsClickItem ? (
     !isClickCreate ? (
