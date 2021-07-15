@@ -1,13 +1,6 @@
 import LS2Request from '@enact/webos/LS2Request';
 
-function handleOnSuccess() {
-    return true;
-}
-function handleOnFailure() {
-    return false;
-}
-
-export const putKind = (owner) => {
+export const putKind = (owner, success, failure) => {
     const result = new LS2Request().send({
         service: 'luna://com.webos.service.db',
         method: 'putKind',
@@ -37,45 +30,33 @@ export const putKind = (owner) => {
                 }
             ]
         },
-        onSuccess: handleOnSuccess,
-        onFailure: handleOnFailure
+        onSuccess: success,
+        onFailure: failure
     });
 
     return result;
 }
 
-export const put = (owner, title, imageURL) => {
-    const result = new LS2Request().send({
+export const put = (item, success, failure) => {
+    new LS2Request().send({
         service: 'luna://com.webos.service.db',
         method: 'put',
         parameters: {
-            "objects": [{
-                "_kind": `${owner}:1`,
-                "title": `${title}`,
-                "imageURL": `${imageURL}`
-            }]
+            "objects": [item]
         },
-        onSuccess: handleOnSuccess,
-        onFailure: handleOnFailure
+        onSuccess: success,
+        onFailure: failure
     });
-    
-    return result
 }
 
-export const find = (owner) => {
-    const result = new LS2Request().send({
+export const find = (owner, success, failure) => {
+    new LS2Request().send({
         service: 'luna://com.webos.service.db',
         method: 'find',
         parameters: {
             "query": { "from": `${owner}:1` }
         },
-        onSuccess: getDataSuccess,
-        onFailure: handleOnFailure
+        onSuccess: success,
+        onFailure: failure
     });
-
-    function getDataSuccess(res) {
-        return res.results;
-    }
-
-    return result;
 }
