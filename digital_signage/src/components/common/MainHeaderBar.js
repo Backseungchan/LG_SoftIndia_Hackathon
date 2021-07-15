@@ -16,11 +16,11 @@ const MainHeaderBar = ({ handleShow }) => {
           visibility: "hidden",
         }}
       ></Button>
-      <h1 style={{ color: "black" }}>WoongYaho</h1>
+      <h1>WoongYaho</h1>
       <Button
         onClick={() => handleShow(false)}
         icon="gear"
-        style={{ backgroundColor: "black", marginRight: "100px" }}
+        style={{ marginRight: "100px" }}
       />
     </div>
   );

@@ -8,7 +8,7 @@ const ItemCard = ({ item, handleClickItem }) => {
       style={{ width: "100%", height: "500px" }}
       onClick={() => handleClickItem(true, item)}
     >
-      <div style={{ color: "black" }}>{item.title}</div>
+      <div style={{ textAlign: "center" }}>{item.title}</div>
     </ImageItem>
   );
 };
