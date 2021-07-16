@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ThemeDecorator from "@enact/sandstone/ThemeDecorator";
+import MoonstoneDecorator from '@enact/moonstone/MoonstoneDecorator';
 import ShowPage from "../views/ShowPage";
 import EditPage from "../views/EditPage";
 import "./App.css";
@@ -48,4 +49,4 @@ const App = () => {
   );
 };
 
-export default ThemeDecorator(App);
+export default MoonstoneDecorator(ThemeDecorator(App));
