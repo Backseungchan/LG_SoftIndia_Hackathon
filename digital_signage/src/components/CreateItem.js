@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Alert from "@enact/sandstone/Alert";
 import Input from "@enact/moonstone/Input";
 import Button from "@enact/sandstone/Button";
-import BodyText from "@enact/sandstone/BodyText";
 
 import DialogUp from "./common/DialogUp";
 
