@@ -3,7 +3,6 @@ import InfiniteCarousel from "react-leaf-carousel";
 import MainHeaderBar from "../components/common/MainHeaderBar";
 
 const ShowPage = ({ items, handleShow }) => {
-
   return (
     <div>
       <MainHeaderBar handleShow={handleShow} />
@@ -20,7 +19,7 @@ const ShowPage = ({ items, handleShow }) => {
           <div style={{ textAlign: "center" }}>
             <img
               src={item.image}
-              style={{ width: "auto", height: "100vh" }}
+              style={{ width: "auto", height: "95vh" }}
             ></img>
           </div>
         ))}
