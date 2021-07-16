@@ -1,7 +1,7 @@
 import LS2Request from '@enact/webos/LS2Request';
 
 export const putKind = (owner, success, failure) => {
-    const result = new LS2Request().send({
+        new LS2Request().send({
         service: 'luna://com.webos.service.db',
         method: 'putKind',
         parameters: {
@@ -33,8 +33,6 @@ export const putKind = (owner, success, failure) => {
         onSuccess: success,
         onFailure: failure
     });
-
-    return result;
 }
 
 export const put = (item, success, failure) => {
@@ -55,6 +53,30 @@ export const find = (owner, success, failure) => {
         method: 'find',
         parameters: {
             "query": { "from": `${owner}:1` }
+        },
+        onSuccess: success,
+        onFailure: failure
+    });
+}
+
+export const del = (_id, success, failure) => {
+    new LS2Request().send({
+        service: 'luna://com.webos.service.db',
+        method: 'del',
+        parameters: {
+            "ids" :[_id]
+        },
+        onSuccess: success,
+        onFailure: failure
+    });
+}
+
+export const speak = (text, success, failure) => {
+    new LS2Request().send({
+        service: 'luna://com.webos.service.tts',
+        method: 'speak',
+        parameters: {
+            "text": `${text}`
         },
         onSuccess: success,
         onFailure: failure

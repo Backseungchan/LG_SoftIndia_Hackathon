@@ -1,7 +1,7 @@
 import React from "react";
 
 import ItemCard from "../components/ItemCard";
-
+import Scroller from "@enact/moonstone/Scroller";
 const ItemList = ({ handleClickItem, items }) => {
   //   const items = [
   //     {
@@ -30,17 +30,23 @@ const ItemList = ({ handleClickItem, items }) => {
   //     },
   //   ];,
   return (
-    <div
+    <Scroller>
+      <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr",
-        justifyItems: "center",
+        display: "flex",
+        justifyContent: "space-betwenn",
+        flexWrap: 'wrap',
+        width: "auto", 
+        height: "85vh"
       }}
-    >
-      {items.map((item, index) => (
-        <ItemCard key={index} item={item} handleClickItem={handleClickItem} />
-      ))}
-    </div>
+      >
+        {items.map((item, index) => (
+            <div style={{flex: "0 0 33%"}} >
+              <ItemCard key={index} item={item} handleClickItem={handleClickItem} />
+            </div>
+        ))}
+      </div>
+    </Scroller>
   );
 };
 
