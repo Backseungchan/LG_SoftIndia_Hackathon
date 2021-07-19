@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@enact/sandstone/Button";
+import Button from "@enact/moonstone/Button";
 
 const CreateButton = ({ btnName, closeIcon, btnAction, closeAction }) => {
   return (

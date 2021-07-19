@@ -16,7 +16,8 @@ const App = () => {
     }, function () {
       console.log("Fail putKind");
     });
-    API.find("com.app.digital-signage", function () {
+    API.find("com.app.digital-signage", function (res) {
+      setItems(res.results);
       console.log("Success find");
     }, function () {
       console.log("Fail find");
