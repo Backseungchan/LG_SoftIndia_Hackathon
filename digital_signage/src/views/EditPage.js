@@ -12,11 +12,6 @@ const EditPage = ({ items, setItems, handleShow }) => {
   const [selectedItem, setSelectedItem] = useState({});
 
   const handleClickItem = (isShowItem, item) => {
-    API.speak(item.description, function () {
-      console.log("Success speak");
-    }, function () {
-      console.log("Fail speak");
-    });
     setIsClickItem(isShowItem);
     isShowItem && setSelectedItem(item);
   };
