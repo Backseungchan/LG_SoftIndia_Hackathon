@@ -3,7 +3,12 @@ import styled from "styled-components";
 import CreateButton from "./common/CreateButton";
 import DialogUp from "./common/DialogUp";
 
-const TextRecognition = ({ createItem, setIsNext, handleSubmit }) => {
+const TextRecognition = ({
+  createItem,
+  setCreateItem,
+  setIsNext,
+  handleSubmit,
+}) => {
   const [isShowDialog, setIsSHowDialog] = useState(false);
 
   const UpdateText = styled.div`
@@ -20,9 +25,13 @@ const TextRecognition = ({ createItem, setIsNext, handleSubmit }) => {
     padding: 10px;
   `;
 
+  const handleChange = (e) => {
+    setCreateItem({ ...createItem, description: e.target.value });
+  };
+
   return (
     <UpdateText>
-      <TextArea />
+      <TextArea value={createItem.description} onChange={handleChange} />
       <CreateButton
         btnName="Create"
         closeIcon="arrowhookleft"
