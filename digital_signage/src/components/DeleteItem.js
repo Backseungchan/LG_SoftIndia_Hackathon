@@ -3,6 +3,10 @@ import { AlertImage } from "@enact/sandstone/Alert";
 import Button from "@enact/sandstone/Button";
 
 const DeleteItem = ({ item, handleClickItem, handleDeleteItem }) => {
+  const handleClickDelete = () => {
+    handleDeleteItem(item._id);
+    handleClickItem(false);
+  };
   return (
     <Alert open="True" title={item.title}>
       <image>
@@ -10,7 +14,7 @@ const DeleteItem = ({ item, handleClickItem, handleDeleteItem }) => {
       </image>
       Are you sure you want to delete "{item.title}"
       <buttons>
-        <Button onClick={handleDeleteItem}>Delete</Button>
+        <Button onClick={handleClickDelete}>Delete</Button>
         <Button onClick={() => handleClickItem(false)}>Cancel</Button>
       </buttons>
     </Alert>
