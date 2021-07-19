@@ -7,7 +7,7 @@ import CreateButton from "./common/CreateButton";
 import TextRecognition from "./TextRecognition";
 
 const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
-  let setItem = { title: "", image: "" };
+  let setItem = { title: "", image: "", description: "" };
   const [alertTitle, setAlertTitle] = useState("Create new signage content");
   const [createItem, setCreateItem] = useState({});
   const [isNext, setIsNext] = useState(false);
@@ -73,6 +73,7 @@ const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
       ) : (
         <TextRecognition
           createItem={createItem}
+          setCreateItem={setCreateItem}
           setIsNext={setIsNext}
           handleSubmit={handleSubmit}
         />
