@@ -12,9 +12,14 @@ const App = () => {
   
   useEffect(() => {
     API.putKind("com.app.digital-signage", function () {
-      console.log("Success");
+      console.log("Success putKind");
     }, function () {
-      console.log("Fail");
+      console.log("Fail putKind");
+    });
+    API.find("com.app.digital-signage", function () {
+      console.log("Success find");
+    }, function () {
+      console.log("Fail find");
     });
   }, []);
 

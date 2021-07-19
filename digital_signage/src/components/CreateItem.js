@@ -16,7 +16,16 @@ const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
   const handleSubmit = () => {
     handleClickCreate(false);
     handleCreateItem(createItem);
-    
+    API.put({
+      "_kind": "com.app.digital-signage:1",
+      "title": `${createItem.title}`,
+      "imageURL": `${createItem.image}`,
+      "description": `${createItem.description}`
+    }, function () {
+      console.log("Success put");
+    }, function () {
+      console.log("Fail put");
+    });
   };
 
   // 제목 및 이미지 링크 유효성 검사

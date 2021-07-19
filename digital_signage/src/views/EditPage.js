@@ -19,7 +19,9 @@ const EditPage = ({ items, setItems, handleShow }) => {
     setIsClickCreate(isCreate);
   };
 
-  const handleDeleteItem = () => {};
+  const handleDeleteItem = () => {
+    
+  };
 
   const handleCreateItem = (item) => {
     setItems([...items, item]);
