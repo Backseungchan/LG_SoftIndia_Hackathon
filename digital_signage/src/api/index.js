@@ -64,7 +64,7 @@ export const del = (_id, success, failure) => {
         service: 'luna://com.webos.service.db',
         method: 'del',
         parameters: {
-            "ids" :[_id]
+            "ids" :[`${_id}`]
         },
         onSuccess: success,
         onFailure: failure
