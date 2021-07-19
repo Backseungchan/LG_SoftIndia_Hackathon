@@ -20,7 +20,7 @@ const TextRecognition = ({
   `;
 
   const TextArea = styled.textarea`
-    width: 500px;
+    width: 800px;
     height: 300px;
     margin-bottom: 30px;
     font-size: 0.6em;
