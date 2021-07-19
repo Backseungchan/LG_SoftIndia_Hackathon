@@ -5,6 +5,7 @@ import Input from "@enact/moonstone/Input";
 
 import CreateButton from "./common/CreateButton";
 import TextRecognition from "./TextRecognition";
+import * as API from "../api/index.js";
 
 const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
   let setItem = { title: "", image: "" };
@@ -15,6 +16,7 @@ const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
   const handleSubmit = () => {
     handleClickCreate(false);
     handleCreateItem(createItem);
+    
   };
 
   // 제목 및 이미지 링크 유효성 검사
