@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Button from "@enact/sandstone/Button";
 
 import CreateButton from "./common/CreateButton";
 import DialogUp from "./common/DialogUp";
