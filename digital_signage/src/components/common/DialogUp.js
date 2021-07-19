@@ -1,22 +1,21 @@
 import React from "react";
 import Dialog from "@enact/moonstone/Dialog";
-import Button from "@enact/sandstone/Button";
 import ImageItem from "@enact/sandstone/ImageItem";
 
-const DialogUp = ({ title, image, description, action, setIsSHowDialog }) => {
+import CreateButton from "./CreateButton";
+
+const DialogUp = ({ title, image, description, action, closeDialog }) => {
   return (
     <Dialog
       open
       title={description}
       buttons={
-        <div>
-          <Button onClick={action}>Yes</Button>
-          <Button
-            icon="closex"
-            onClick={() => setIsSHowDialog(false)}
-            style={{ backgroundColor: "indianred", color: "white" }}
-          ></Button>
-        </div>
+        <CreateButton
+          btnName="Yes"
+          closeIcon="closex"
+          btnAction={action}
+          closeAction={closeDialog}
+        />
       }
       style={{ color: "black", textAlign: "center" }}
     >
