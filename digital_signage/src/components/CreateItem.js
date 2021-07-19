@@ -13,6 +13,7 @@ const CreateItem = ({ handleClickCreate, handleCreateItem }) => {
   const [isNext, setIsNext] = useState(false);
 
   const handleSubmit = () => {
+    console.log(createItem);
     handleClickCreate(false);
     handleCreateItem(createItem);
   };

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Button from "@enact/sandstone/Button";
+
 import CreateButton from "./common/CreateButton";
 import DialogUp from "./common/DialogUp";
 
@@ -9,7 +11,7 @@ const TextRecognition = ({
   setIsNext,
   handleSubmit,
 }) => {
-  const [isShowDialog, setIsSHowDialog] = useState(false);
+  const [isShowDialog, setIsShowDialog] = useState(false);
 
   const UpdateText = styled.div`
     display: flex;
@@ -25,17 +27,21 @@ const TextRecognition = ({
     padding: 10px;
   `;
 
-  const handleChange = (e) => {
-    setCreateItem({ ...createItem, description: e.target.value });
+  const handleSetDescription = () => {
+    setCreateItem({
+      ...createItem,
+      description: document.getElementById("description").value,
+    });
+    setIsShowDialog(true);
   };
 
   return (
     <UpdateText>
-      <TextArea value={createItem.description} onChange={handleChange} />
+      <TextArea id="description" />
       <CreateButton
         btnName="Create"
         closeIcon="arrowhookleft"
-        btnAction={() => setIsSHowDialog(true)}
+        btnAction={handleSetDescription}
         closeAction={() => setIsNext(false)}
       />
       {isShowDialog && (
@@ -44,7 +50,7 @@ const TextRecognition = ({
           image={createItem.image}
           description="Would you like to add this content?"
           action={handleSubmit}
-          closeDialog={() => setIsSHowDialog(false)}
+          closeDialog={() => setIsShowDialog(false)}
         />
       )}
     </UpdateText>
