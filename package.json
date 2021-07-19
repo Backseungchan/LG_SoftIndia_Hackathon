@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "react-responsive-carousel": "^3.2.19",
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1"
+  }
+}
