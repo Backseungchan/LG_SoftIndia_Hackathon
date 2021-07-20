@@ -14,7 +14,7 @@ const CarouselCard = ({ items }) => {
     >
       {items.map((item) => (
         <div>
-          <img style={{ height: "100vh", width: "auto" }} src={item.image} />
+          <img style={{ height: "100vh", width: "auto" }} src={item.imgBase64} />
         </div>
       ))}
     </Carousel>
