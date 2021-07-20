@@ -1,14 +1,12 @@
-import { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import { Button, Paper } from '@material-ui/core';
+import { useState } from "react";
 
 import * as API from "./api/index.js";
+import CreateItem from "./components/Views/CreateItem.js";
 
 const init = {
   title: "",
   imgBase64: "",
-  description: ""
+  description: "",
 };
 
 function App() {
@@ -27,9 +25,10 @@ function App() {
       // 읽기 완료 후 아래 코드 실행
       const base64 = reader.result;
       if (base64) {
-        setInput({...input, imgBase64: base64.toString()}); // 파일 base64 상태 업데이트
+        setInput({ ...input, imgBase64: base64.toString() }); // 파일 base64 상태 업데이트
+        console.log(input);
       }
-    }
+    };
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0]); // 파일을 읽어 버퍼에 저장
       setFile(e.target.files[0]); // 파일 상태 업데이트
@@ -37,18 +36,13 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div>
-        <img src={input.imgBase64} alt="img" />
-      </div>
-      <Paper>
-        <form autoComplete="off" noValidate onSubmit={handleSubmit}>
-          <TextField variant="outlined" label="title" value={input.title} onChange={(e) => setInput({...input, title: e.target.value})} />
-          <TextField multiline rows={4} variant="outlined" label="description" value={input.description} onChange={(e) => setInput({...input, description: e.target.value})} />
-          <input type="file" onChange={handleFileChange} />
-          <Button type="submit" variant="contained" color="primary">Submit</Button>
-        </form>
-      </Paper>
+    <div className="App" style={{ height: "100vh" }}>
+      <CreateItem
+        input={input}
+        setInput={setInput}
+        handleSubmit={handleSubmit}
+        handleFileChange={handleFileChange}
+      />
     </div>
   );
 }
