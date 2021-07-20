@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 import * as API from "./api/index.js";
+import Header from "./components/Header.js";
+import ItemList from "./Views/ItemList.js";
 import CreateItem from "./Views/CreateItem.js";
 
 const init = {
@@ -10,8 +12,9 @@ const init = {
 };
 
 function App() {
-  const [input, setInput] = useState(init);
+  const [input, setInput] = useState([init]);
   const [file, setFile] = useState(null);
+  const [isItemList, setIsItemList] = useState(true);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -37,12 +40,17 @@ function App() {
 
   return (
     <div className="App" style={{ height: "100vh" }}>
-      <CreateItem
-        input={input}
-        setInput={setInput}
-        handleSubmit={handleSubmit}
-        handleFileChange={handleFileChange}
-      />
+      <Header isItemList={isItemList} setIsItemList={setIsItemList} />
+      {isItemList ? (
+        <ItemList input={input} setInput={setInput} />
+      ) : (
+        <CreateItem
+          input={input}
+          setInput={setInput}
+          handleSubmit={handleSubmit}
+          handleFileChange={handleFileChange}
+        />
+      )}
     </div>
   );
 }

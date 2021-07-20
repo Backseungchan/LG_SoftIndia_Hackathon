@@ -7,10 +7,8 @@ import CreateImage from "../components/CreateImage";
 const useStyles = makeStyles({
   createLayout: {
     width: "100%",
-    height: "100%",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
   },
   createForm: {
     flexDirection: "column",
@@ -26,7 +24,7 @@ const CreateItem = ({ input, setInput, handleSubmit, handleFileChange }) => {
   return (
     <div className={classes.createLayout}>
       <div className={classes.createLayout} style={{ flexDirection: "column" }}>
-        <Paper style={{ width: "60%" }}>
+        <Paper elevation={3} style={{ width: "60%" }}>
           <form
             className={`${classes.createLayout} ${classes.createForm}`}
             autoComplete="off"
