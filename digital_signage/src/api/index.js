@@ -7,7 +7,7 @@ export const getData = () => API.get('/data');
 
 export const createData = (data) => API.post('/data', data);
 
-export const deleteData = (id) => API.post(`data/${id}`);
+export const deleteData = (id) => API.delete(`data/${id}`);
 
 export const putKind = (owner, success, failure) => {
         new LS2Request().send({
