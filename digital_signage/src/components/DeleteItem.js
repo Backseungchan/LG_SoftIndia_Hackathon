@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Alert from "@enact/sandstone/Alert";
 import { AlertImage } from "@enact/sandstone/Alert";
 import Button from "@enact/sandstone/Button";
-import Popup from "@enact/moonstone/Popup";
 
 const DeleteItem = ({ item, handleClickItem, handleDeleteItem }) => {
   const handleClickDelete = () => {
@@ -22,9 +21,8 @@ const DeleteItem = ({ item, handleClickItem, handleDeleteItem }) => {
     <Alert open="True" title="Do you want to delete?">
       <image>
         <ItemLayout>
-          <AlertImage src={item.image} type="thumbnail" />
+          <AlertImage src={item.imgBase64} type="thumbnail" />
           <h2 style={{ textAlign: "center" }}>{item.title}</h2>
-          <Button>Show description</Button>
         </ItemLayout>
       </image>
       <div style={{ textAlign: "center" }}>
@@ -35,9 +33,6 @@ const DeleteItem = ({ item, handleClickItem, handleDeleteItem }) => {
           style={{ backgroundColor: "indianred", color: "white" }}
         />
       </div>
-      <Popup open={false}>
-        <pre>{item.description}</pre>
-      </Popup>
     </Alert>
   );
 };

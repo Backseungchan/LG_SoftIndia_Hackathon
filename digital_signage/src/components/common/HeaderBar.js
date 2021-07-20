@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@enact/sandstone/Button";
 
-const HeaderBar = ({ handleClickCreate, handleShow }) => {
+const HeaderBar = ({ handleShow, fetchData }) => {
   return (
     <div
       style={{
@@ -19,10 +19,9 @@ const HeaderBar = ({ handleClickCreate, handleShow }) => {
         }}
         icon="arrowhookleft"
       ></Button>
-      <h1>Edit</h1>
       <Button
-        onClick={() => handleClickCreate(true)}
-        icon="plus"
+        onClick={() => fetchData()}
+        icon="refresh"
         style={{ marginRight: "100px", backgroundColor: "gray" }}
       />
     </div>

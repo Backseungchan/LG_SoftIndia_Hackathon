@@ -1,4 +1,13 @@
+import axios from "axios";
 import LS2Request from '@enact/webos/LS2Request';
+
+const API = axios.create({ baseURL: 'https://digital-signage-lgsi.herokuapp.com/' });
+
+export const getData = () => API.get('/data');
+
+export const createData = (data) => API.post('/data', data);
+
+export const deleteData = (id) => API.post('/data', id);
 
 export const putKind = (owner, success, failure) => {
         new LS2Request().send({
