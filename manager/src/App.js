@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import * as API from "./api/index.js";
-import CreateItem from "./components/Views/CreateItem.js";
+import CreateItem from "./Views/CreateItem.js";
 
 const init = {
   title: "",
