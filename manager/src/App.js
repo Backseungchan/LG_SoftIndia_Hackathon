@@ -20,6 +20,7 @@ function App() {
     e.preventDefault();
     API.createData(input);
     setInput(init);
+    setIsItemList(true);
   }
 
   function handleFileChange(e) {
