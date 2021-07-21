@@ -57,8 +57,8 @@ const CreateItem = ({ handleItemList, setPending, items, setItems }) => {
               noValidate
               onSubmit={handleSubmit}
             >
-              <CreateText input={input} setInput={setInput} />
               <CreateImage input={input} setInput={setInput} />
+              <CreateText input={input} setInput={setInput} />
               <Button type="submit" variant="contained" color="primary">
                 Create
               </Button>
