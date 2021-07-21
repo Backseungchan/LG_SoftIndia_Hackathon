@@ -2,6 +2,7 @@ import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Paper } from "@material-ui/core";
 
+import Header from "../components/Header";
 import CreateText from "../components/CreateText";
 import CreateImage from "../components/CreateImage";
 
@@ -27,7 +28,7 @@ const init = {
   description: "",
 };
 
-const CreateItem = ({ setIsItemList, setPending, items, setItems }) => {
+const CreateItem = ({ handleItemList, setPending, items, setItems }) => {
   const classes = useStyles();
   const [input, setInput] = useState(init);
 
@@ -38,29 +39,34 @@ const CreateItem = ({ setIsItemList, setPending, items, setItems }) => {
     setItems([...items, input]);
     setPending(false);
     setInput(init);
-    setIsItemList(true);
+    handleItemList();
   }
 
-
   return (
-    <div className={classes.createLayout}>
-      <div className={classes.createLayout} style={{ flexDirection: "column" }}>
-        <Paper elevation={3} style={{ width: "60%" }}>
-          <form
-            className={`${classes.createLayout} ${classes.createForm}`}
-            autoComplete="off"
-            noValidate
-            onSubmit={handleSubmit}
-          >
-            <CreateText input={input} setInput={setInput} />
-            <CreateImage input={input} setInput={setInput} />
-            <Button type="submit" variant="contained" color="primary">
-              Create
-            </Button>
-          </form>
-        </Paper>
+    <>
+      <Header action={handleItemList} />
+      <div className={classes.createLayout}>
+        <div
+          className={classes.createLayout}
+          style={{ flexDirection: "column" }}
+        >
+          <Paper elevation={3} style={{ width: "60%" }}>
+            <form
+              className={`${classes.createLayout} ${classes.createForm}`}
+              autoComplete="off"
+              noValidate
+              onSubmit={handleSubmit}
+            >
+              <CreateText input={input} setInput={setInput} />
+              <CreateImage input={input} setInput={setInput} />
+              <Button type="submit" variant="contained" color="primary">
+                Create
+              </Button>
+            </form>
+          </Paper>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

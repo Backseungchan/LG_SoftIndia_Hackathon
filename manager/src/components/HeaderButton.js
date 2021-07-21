@@ -13,20 +13,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const HeaderButton = ({ isItemList, setIsItemList, action }) => {
+const HeaderButton = ({ isList, action }) => {
   const classes = useStyles();
-
-  const handleClick = () => {
-    setIsItemList(!isItemList);
-  };
 
   return (
     <div className={classes.root}>
-      <Button variant="outlined" color="primary" onClick={handleClick}>
-        {isItemList ? <AddCircleIcon /> : <HomeIcon />}
+      <Button variant="outlined" color="primary" onClick={action}>
+        {isList ? <AddCircleIcon /> : <HomeIcon />}
       </Button>
     </div>
   );
+};
+
+HeaderButton.defaultProps = {
+  isList: false,
 };
 
 export default HeaderButton;

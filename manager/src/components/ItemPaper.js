@@ -15,17 +15,33 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    border: "2px solid",
+    "&:hover": {
+      border: "2px solid #3f51b5",
+      "& h3": {
+        borderTopColor: "#3f51b5",
+      },
+    },
+  },
+  paperTitle: {
+    display: "flex",
+    width: "100%",
+    height: "30px",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "0px",
+    borderTop: "2px solid",
   },
 }));
 
-const ItemPaper = ({ item }) => {
+const ItemPaper = ({ item, handleItemDetail }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.itemRoot}>
+    <div className={classes.itemRoot} onClick={() => handleItemDetail(item)}>
       <Paper elevation={3} className={classes.paper}>
         <img src={item.imgBase64} alt={item.title} width="100%" />
-        <h3>{item.title}</h3>
+        <h3 className={classes.paperTitle}>{item.title}</h3>
       </Paper>
     </div>
   );

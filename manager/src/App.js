@@ -1,18 +1,17 @@
 import { useState, useEffect } from "react";
 
-import Header from "./components/Header.js";
 import ItemList from "./Views/ItemList.js";
 import CreateItem from "./Views/CreateItem.js";
-import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { makeStyles } from '@material-ui/core/styles';
+import Backdrop from "@material-ui/core/Backdrop";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { makeStyles } from "@material-ui/core/styles";
 
 import * as API from "./api/index.js";
 
 const useStyles = makeStyles((theme) => ({
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
-    color: '#fff',
+    color: "#fff",
   },
 }));
 
@@ -32,17 +31,24 @@ function App() {
     setItems(data);
     setPending(false);
   }
-  
+
+  const handleItemList = () => setIsItemList(!isItemList);
+
   return (
     <div className="App" style={{ height: "100vh" }}>
-      <Backdrop className={classes.backdrop} open={pending} >
+      <Backdrop className={classes.backdrop} open={pending}>
         <CircularProgress color="inherit" />
       </Backdrop>
-      <Header isItemList={isItemList} setIsItemList={setIsItemList} />
+
       {isItemList ? (
-        <ItemList items={items}  />
+        <ItemList items={items} handleItemList={handleItemList} />
       ) : (
-        <CreateItem setIsItemList={setIsItemList} items={items} setItems={setItems} setPending={setPending} />
+        <CreateItem
+          items={items}
+          setItems={setItems}
+          setPending={setPending}
+          handleItemList={handleItemList}
+        />
       )}
     </div>
   );

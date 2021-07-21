@@ -12,12 +12,12 @@ const useStyles = makeStyles({
   },
 });
 
-const Header = ({ isItemList, setIsItemList }) => {
+const Header = ({ isList, action }) => {
   const classes = useStyles();
   return (
     <div className={classes.headerRoot}>
       <h1>SDS Manager</h1>
-      <HeaderButton isItemList={isItemList} setIsItemList={setIsItemList} />
+      <HeaderButton isList={isList} action={action} />
     </div>
   );
 };
