@@ -5,6 +5,8 @@ import Header from "../components/Header";
 import ItemPaper from "../components/ItemPaper";
 import ItemDetail from "../components/ItemDetail";
 
+import * as API from "../api/index.js";
+
 const useStyles = makeStyles({
   listLayout: {
     display: "grid",
@@ -13,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ItemList = ({ items, handleItemList }) => {
+const ItemList = ({ items, setItems, handleItemList }) => {
   const classes = useStyles();
   const [itemDetail, setItemDetail] = useState({});
   const [isItemDetail, setIsItemDetail] = useState(false);
@@ -21,6 +23,12 @@ const ItemList = ({ items, handleItemList }) => {
   const handleItemDetail = (item) => {
     setItemDetail(item);
     setIsItemDetail(!isItemDetail);
+  };
+
+  const handleDelete = async (id) => {
+    await API.deleteData(id);
+    setItems(items.filter((item) => item._id !== id));
+    handleItemList();
   };
 
   return !isItemDetail ? (
@@ -42,7 +50,7 @@ const ItemList = ({ items, handleItemList }) => {
   ) : (
     <>
       <Header action={() => setIsItemDetail(false)} />
-      <ItemDetail item={itemDetail} />
+      <ItemDetail item={itemDetail} handleDelete={handleDelete} />
     </>
   );
 };

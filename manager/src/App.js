@@ -41,7 +41,11 @@ function App() {
       </Backdrop>
 
       {isItemList ? (
-        <ItemList items={items} handleItemList={handleItemList} />
+        <ItemList
+          items={items}
+          setItems={setItems}
+          handleItemList={handleItemList}
+        />
       ) : (
         <CreateItem
           items={items}

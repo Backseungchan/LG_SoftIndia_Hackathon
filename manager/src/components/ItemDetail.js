@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import { Paper, Button } from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles((theme) => ({
   detailLayout: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item, handleDelete }) => {
   const classes = useStyles();
   return (
     <div className={classes.detailLayout}>
@@ -38,6 +39,16 @@ const ItemDetail = ({ item }) => {
       />
       <div className={classes.detailPaperRoot}>
         <Paper elevation={3} className={classes.detailPaper}>
+          <div style={{ width: "100%" }}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              startIcon={<DeleteIcon />}
+              onClick={() => handleDelete(item._id)}
+            >
+              Delete
+            </Button>
+          </div>
           <h2 style={{ marginTop: "0px" }}>TITLE</h2>
           {item.title}
           <h2>DESCRIPTION</h2>
