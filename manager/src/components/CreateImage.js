@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import FileBase from "react-file-base64";
 
 import ShowImage from "./ShowImage";
 
@@ -10,16 +11,12 @@ const useStyles = makeStyles({
   },
 });
 
-const CreateImage = ({ input, handleFileChange }) => {
+const CreateImage = ({ input, setInput }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.createImgLayout}>
-      <input
-        type="file"
-        style={{ marginBottom: "30px" }}
-        onChange={handleFileChange}
-      />
+      <FileBase type="file" multiple={false} onDone={(file) => setInput({...input, imgBase64: file.base64})} />
       <ShowImage input={input} />
     </div>
   );

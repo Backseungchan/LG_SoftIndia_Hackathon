@@ -27,33 +27,20 @@ const init = {
   description: "",
 };
 
-const CreateItem = ({ setIsItemList }) => {
+const CreateItem = ({ setIsItemList, setPending, items, setItems }) => {
   const classes = useStyles();
   const [input, setInput] = useState(init);
-  const [file, setFile] = useState(null);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    API.createData(input);
+    setPending(true);
+    await API.createData(input);
+    setItems([...items, input]);
+    setPending(false);
     setInput(init);
     setIsItemList(true);
   }
 
-  function handleFileChange(e) {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      // 읽기 완료 후 아래 코드 실행
-      const base64 = reader.result;
-      if (base64) {
-        setInput({ ...input, imgBase64: base64.toString() }); // 파일 base64 상태 업데이트
-        console.log(input);
-      }
-    };
-    if (e.target.files[0]) {
-      reader.readAsDataURL(e.target.files[0]); // 파일을 읽어 버퍼에 저장
-      setFile(e.target.files[0]); // 파일 상태 업데이트
-    }
-  }
 
   return (
     <div className={classes.createLayout}>
@@ -66,7 +53,7 @@ const CreateItem = ({ setIsItemList }) => {
             onSubmit={handleSubmit}
           >
             <CreateText input={input} setInput={setInput} />
-            <CreateImage input={input} handleFileChange={handleFileChange} />
+            <CreateImage input={input} setInput={setInput} />
             <Button type="submit" variant="contained" color="primary">
               Create
             </Button>
