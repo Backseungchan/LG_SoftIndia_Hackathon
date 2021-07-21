@@ -24,7 +24,12 @@ const ItemPaper = ({ item }) => {
   return (
     <div className={classes.itemRoot}>
       <Paper elevation={3} className={classes.paper}>
-        <img src={item.imgBase64} alt={item.title} width="100%" />
+        <img
+          src={item.imgBase64}
+          alt={item.title}
+          width="100%"
+          height="500px"
+        />
         <h3>{item.title}</h3>
       </Paper>
     </div>
