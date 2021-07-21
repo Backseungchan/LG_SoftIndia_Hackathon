@@ -16,7 +16,7 @@ const Header = ({ isItemList, setIsItemList }) => {
   const classes = useStyles();
   return (
     <div className={classes.headerRoot}>
-      <h1>MANAGE</h1>
+      <h1>SDS Manager</h1>
       <HeaderButton isItemList={isItemList} setIsItemList={setIsItemList} />
     </div>
   );

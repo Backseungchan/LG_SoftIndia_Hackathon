@@ -1,56 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import * as API from "./api/index.js";
 import Header from "./components/Header.js";
 import ItemList from "./Views/ItemList.js";
 import CreateItem from "./Views/CreateItem.js";
 
-const init = {
-  title: "",
-  imgBase64: "",
-  description: "",
-};
+import * as API from "./api/index.js";
 
 function App() {
-  const [input, setInput] = useState([init]);
-  const [file, setFile] = useState(null);
   const [isItemList, setIsItemList] = useState(true);
+  const [items, setItems] = useState([]);
+  const [pending, setPending] = useState(false);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    API.createData(input);
-    setInput(init);
-    setIsItemList(true);
-  }
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  function handleFileChange(e) {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      // 읽기 완료 후 아래 코드 실행
-      const base64 = reader.result;
-      if (base64) {
-        setInput({ ...input, imgBase64: base64.toString() }); // 파일 base64 상태 업데이트
-        console.log(input);
-      }
-    };
-    if (e.target.files[0]) {
-      reader.readAsDataURL(e.target.files[0]); // 파일을 읽어 버퍼에 저장
-      setFile(e.target.files[0]); // 파일 상태 업데이트
-    }
+  async function fetchData() {
+    setPending(true);
+    const { data } = await API.getData();
+    setPending(false);
+    setItems(data);
   }
+  
 
   return (
     <div className="App" style={{ height: "100vh" }}>
       <Header isItemList={isItemList} setIsItemList={setIsItemList} />
       {isItemList ? (
-        <ItemList input={input} setInput={setInput} />
+        <ItemList items={items}  />
       ) : (
-        <CreateItem
-          input={input}
-          setInput={setInput}
-          handleSubmit={handleSubmit}
-          handleFileChange={handleFileChange}
-        />
+        <CreateItem setIsItemList={setIsItemList} />
       )}
     </div>
   );

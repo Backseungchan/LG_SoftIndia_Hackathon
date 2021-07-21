@@ -10,11 +10,11 @@ const useStyles = makeStyles({
   },
 });
 
-const ItemList = ({ input, setInput }) => {
+const ItemList = ({ items }) => {
   const classes = useStyles();
   return (
     <div className={classes.listLayout}>
-      {input.map(
+      {items.map(
         (item, index) =>
           item.title !== "" && <ItemPaper key={index} item={item} />
       )}
