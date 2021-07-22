@@ -4,6 +4,7 @@ import { Paper } from "@material-ui/core";
 
 import Header from "../components/common/Header";
 import CreateForm from "../components/CreateForm";
+import ShowImage from "../components/common/ShowImage";
 
 import * as API from "../api/index.js";
 
@@ -64,27 +65,24 @@ const CreateItem = ({ handleItemList, setPending, items, setItems }) => {
     <>
       <Header action={handleItemList} />
       <div className={isSecond && classes.descriptionLayout}>
-        {isSecond && (
-          <img
-            src={input.imgBase64}
-            alt={input.title + " img"}
-            style={{ width: "40%", border: "1px solid" }}
-          />
-        )}
+        {isSecond && <ShowImage item={input} width="40%" />}
         <div
           className={classes.createLayout}
           style={{ flexDirection: "column" }}
         >
           <Paper
             elevation={3}
-            style={{ width: `${isSecond ? "800px" : "60%"}` }}
+            style={{
+              width: `${isSecond ? "800px" : "60%"}`,
+              marginTop: `${isSecond ? "0px" : "100px"}`,
+            }}
           >
             <CreateForm
               input={input}
+              isSecond={isSecond}
               setInput={setInput}
               handleSubmit={handleSubmit}
               handelSetInput={handelSetInput}
-              isSecond={isSecond}
               handleIsDescription={handleIsDescription}
             />
           </Paper>

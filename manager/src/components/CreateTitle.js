@@ -13,7 +13,6 @@ const CreateTitle = ({ input, handelSetInput }) => {
 
   return (
     <TextField
-      required
       name="title"
       className={classes.inputTitle}
       variant="outlined"

@@ -16,15 +16,15 @@ const useStyles = makeStyles({
   }),
 });
 
-const CreateForm = (props) => {
-  const {
-    input,
-    setInput,
-    isSecond,
-    handleSubmit,
-    handelSetInput,
-    handleIsDescription,
-  } = props;
+const CreateForm = ({
+  input,
+  setInput,
+  isSecond,
+  disableBtn,
+  handleSubmit,
+  handelSetInput,
+  handleIsDescription,
+}) => {
   const classes = useStyles(isSecond);
   return (
     <form
@@ -36,6 +36,7 @@ const CreateForm = (props) => {
       {!isSecond ? (
         <CreateFirst
           input={input}
+          disableBtn={disableBtn}
           setInput={setInput}
           handelSetInput={handelSetInput}
           handleIsDescription={handleIsDescription}
@@ -43,7 +44,6 @@ const CreateForm = (props) => {
       ) : (
         <CreateSecond
           input={input}
-          setInput={setInput}
           handelSetInput={handelSetInput}
           handleIsDescription={handleIsDescription}
         />

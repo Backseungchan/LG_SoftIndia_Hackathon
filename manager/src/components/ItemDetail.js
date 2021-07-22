@@ -2,6 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 
+import ShowImage from "./common/ShowImage";
+
 const useStyles = makeStyles((theme) => ({
   detailLayout: {
     display: "flex",
@@ -32,11 +34,7 @@ const ItemDetail = ({ item, handleDelete }) => {
   const classes = useStyles();
   return (
     <div className={classes.detailLayout}>
-      <img
-        src={item.imgBase64}
-        alt={item.title + " img"}
-        style={{ width: "50%", border: "1px solid" }}
-      />
+      <ShowImage item={item} width="50%" />
       <div className={classes.detailPaperRoot}>
         <Paper elevation={3} className={classes.detailPaper}>
           <div style={{ width: "100%" }}>

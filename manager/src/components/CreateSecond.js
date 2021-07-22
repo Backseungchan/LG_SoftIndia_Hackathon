@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
@@ -12,6 +14,12 @@ const useStyles = makeStyles({
 
 const CreateSecond = ({ input, handelSetInput, handleIsDescription }) => {
   const classes = useStyles();
+  const [isDisableBtn, setIsDisableBtn] = useState(true);
+
+  useEffect(() => {
+    if (input.description !== "") setIsDisableBtn(false);
+    else setIsDisableBtn(true);
+  }, [input]);
 
   return (
     <>
@@ -26,7 +34,6 @@ const CreateSecond = ({ input, handelSetInput, handleIsDescription }) => {
         </Button>
       </div>
       <TextField
-        required
         multiline
         rows={15}
         name="description"
@@ -36,7 +43,12 @@ const CreateSecond = ({ input, handelSetInput, handleIsDescription }) => {
         value={input.description}
         onChange={handelSetInput}
       />
-      <Button type="submit" variant="contained" color="primary">
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        disabled={isDisableBtn}
+      >
         Complete
       </Button>
     </>
