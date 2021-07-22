@@ -45,7 +45,16 @@ const CreateItem = ({ handleItemList, setPending, items, setItems }) => {
     handleItemList();
   }
 
-  const handleIsDescription = () => setIsSecond(!isSecond);
+  const handleIsDescription = async () => {
+    setPending(true);
+    const bodyFormData = new FormData();
+    bodyFormData.append('img_url', input.imgBase64)
+    const res = await API.getImageOCR(bodyFormData);
+    console.log(res);
+    setInput({...input, description: res.data.content});
+    setPending(false);
+    setIsSecond(!isSecond);
+  };
 
   const handelSetInput = (e) => {
     const { name, value } = e.target;
