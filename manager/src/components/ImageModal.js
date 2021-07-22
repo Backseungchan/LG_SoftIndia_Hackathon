@@ -14,17 +14,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ShowImage({ input }) {
+export default function ImageModal({ input }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div>
@@ -43,7 +37,11 @@ export default function ShowImage({ input }) {
         }}
       >
         <div className={classes.paper}>
-          <img src={input.imgBase64} alt="There is no img selected." />
+          <img
+            src={input.imgBase64}
+            alt="There is no img selected."
+            width="800px"
+          />
         </div>
       </Modal>
     </div>

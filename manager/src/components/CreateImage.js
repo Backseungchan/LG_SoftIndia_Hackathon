@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import FileBase from "react-file-base64";
 
-import ShowImage from "./ShowImage";
+import ImageModal from "./ImageModal";
 
 const useStyles = makeStyles({
   createImgLayout: {
@@ -22,7 +22,7 @@ const CreateImage = ({ input, setInput }) => {
         multiple={false}
         onDone={(file) => setInput({ ...input, imgBase64: file.base64 })}
       />
-      <ShowImage input={input} />
+      <ImageModal input={input} />
     </div>
   );
 };
