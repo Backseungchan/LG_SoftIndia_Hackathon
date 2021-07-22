@@ -1,10 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-import HeaderButton from "./HeaderButton";
+import HeaderButton from "../HeaderButton";
 
 const useStyles = makeStyles({
   headerRoot: {
-    marginTop: "40px",
+    paddingTop: "40px",
     marginBottom: "40px",
     display: "flex",
     justifyContent: "center",

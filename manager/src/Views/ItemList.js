@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Header from "../components/Header";
+import Header from "../components/common/Header";
 import ItemPaper from "../components/ItemPaper";
 import ItemDetail from "../components/ItemDetail";
 
