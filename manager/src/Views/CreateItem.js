@@ -1,25 +1,27 @@
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Paper } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 
-import Header from "../components/Header";
-import CreateText from "../components/CreateText";
-import CreateImage from "../components/CreateImage";
+import Header from "../components/common/Header";
+import CreateForm from "../components/CreateForm";
 
 import * as API from "../api/index.js";
 
 const useStyles = makeStyles({
   createLayout: {
-    width: "100%",
     display: "flex",
     alignItems: "center",
   },
-  createForm: {
+  descriptionLayout: {
+    display: "flex",
+    justifyContent: "space-around",
+  },
+  createForm: (isDescription) => ({
     flexDirection: "column",
     justifyContent: "space-around",
     padding: "10px",
-    height: "500px",
-  },
+    height: `${isDescription ? "500px" : "300px"}`,
+  }),
 });
 
 const init = {
@@ -29,8 +31,9 @@ const init = {
 };
 
 const CreateItem = ({ handleItemList, setPending, items, setItems }) => {
-  const classes = useStyles();
   const [input, setInput] = useState(init);
+  const [isSecond, setIsSecond] = useState(false);
+  const classes = useStyles(isSecond);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -42,27 +45,40 @@ const CreateItem = ({ handleItemList, setPending, items, setItems }) => {
     handleItemList();
   }
 
+  const handleIsDescription = () => setIsSecond(!isSecond);
+
+  const handelSetInput = (e) => {
+    const { name, value } = e.target;
+    setInput({ ...input, [name]: value });
+  };
+
   return (
     <>
       <Header action={handleItemList} />
-      <div className={classes.createLayout}>
+      <div className={isSecond && classes.descriptionLayout}>
+        {isSecond && (
+          <img
+            src={input.imgBase64}
+            alt={input.title + " img"}
+            style={{ width: "40%", border: "1px solid" }}
+          />
+        )}
         <div
           className={classes.createLayout}
           style={{ flexDirection: "column" }}
         >
-          <Paper elevation={3} style={{ width: "60%" }}>
-            <form
-              className={`${classes.createLayout} ${classes.createForm}`}
-              autoComplete="off"
-              noValidate
-              onSubmit={handleSubmit}
-            >
-              <CreateImage input={input} setInput={setInput} />
-              <CreateText input={input} setInput={setInput} />
-              <Button type="submit" variant="contained" color="primary">
-                Create
-              </Button>
-            </form>
+          <Paper
+            elevation={3}
+            style={{ width: `${isSecond ? "800px" : "60%"}` }}
+          >
+            <CreateForm
+              input={input}
+              setInput={setInput}
+              handleSubmit={handleSubmit}
+              handelSetInput={handelSetInput}
+              isSecond={isSecond}
+              handleIsDescription={handleIsDescription}
+            />
           </Paper>
         </div>
       </div>

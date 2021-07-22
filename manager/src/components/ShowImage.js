@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
+import { Modal, Backdrop, Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -29,9 +28,10 @@ export default function ShowImage({ input }) {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
+      <Button variant="outlined" color="primary" onClick={handleOpen}>
         View image
-      </button>
+      </Button>
+
       <Modal
         className={classes.modal}
         open={open}
