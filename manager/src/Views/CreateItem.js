@@ -39,8 +39,8 @@ const CreateItem = ({ handleItemList, setPending, items, setItems }) => {
   async function handleSubmit(e) {
     e.preventDefault();
     setPending(true);
-    await API.createData(input);
-    setItems([...items, input]);
+    const res = await API.createData(input);
+    setItems([...items, res.data]);
     setPending(false);
     setInput(init);
     handleItemList();
@@ -51,7 +51,6 @@ const CreateItem = ({ handleItemList, setPending, items, setItems }) => {
     const bodyFormData = new FormData();
     bodyFormData.append('img_url', input.imgBase64)
     const res = await API.getImageOCR(bodyFormData);
-    console.log(res);
     setInput({...input, description: res.data.content});
     setPending(false);
     setIsSecond(!isSecond);
