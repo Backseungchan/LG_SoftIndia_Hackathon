@@ -53,7 +53,7 @@ const ItemDetail = ({ item, items, setItems, handleDelete }) => {
             <>
               <h2 style={{ marginTop: "0px" }}>TITLE</h2>
               {item.title}
-              <hr style={{ width: "80%", marginTop: "20px" }} />
+              <hr style={{ width: "100%", marginTop: "20px" }} />
               <h2>DESCRIPTION</h2>
               <pre style={{ fontFamily: "auto" }}>{item.description}</pre>
             </>
