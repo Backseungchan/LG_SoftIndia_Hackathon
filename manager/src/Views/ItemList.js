@@ -26,6 +26,7 @@ const ItemList = ({ items, setItems, handleItemList }) => {
   };
 
   const handleDelete = async (id) => {
+    console.log(id);
     await API.deleteData(id);
     setItems(items.filter((item) => item._id !== id));
     handleItemList();
@@ -50,7 +51,12 @@ const ItemList = ({ items, setItems, handleItemList }) => {
   ) : (
     <>
       <Header action={() => setIsItemDetail(false)} />
-      <ItemDetail item={itemDetail} handleDelete={handleDelete} />
+      <ItemDetail
+        item={itemDetail}
+        items={items}
+        setItems={setItems}
+        handleDelete={handleDelete}
+      />
     </>
   );
 };
