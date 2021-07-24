@@ -22,7 +22,12 @@ export default function ImageModal({ input }) {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleOpen}>
+      <Button
+        disabled={!input.imgBase64 ? true : false}
+        variant="outlined"
+        color="primary"
+        onClick={handleOpen}
+      >
         View image
       </Button>
 

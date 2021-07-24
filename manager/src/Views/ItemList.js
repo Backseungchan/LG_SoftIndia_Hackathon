@@ -9,27 +9,29 @@ import * as API from "../api/index.js";
 
 const useStyles = makeStyles({
   listLayout: {
+    height: "100%",
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
     gap: "50px",
   },
 });
 
-const ItemList = ({ items, setItems, handleItemList }) => {
+const ItemList = ({ items, setItems, setPending, handleItemList }) => {
   const classes = useStyles();
   const [itemDetail, setItemDetail] = useState({});
   const [isItemDetail, setIsItemDetail] = useState(false);
 
   const handleItemDetail = (item) => {
-    setItemDetail(item);
+    item && setItemDetail(item);
     setIsItemDetail(!isItemDetail);
   };
 
   const handleDelete = async (id) => {
-    console.log(id);
+    setPending(true);
     await API.deleteData(id);
     setItems(items.filter((item) => item._id !== id));
-    handleItemList();
+    setPending(false);
+    handleItemDetail();
   };
 
   return !isItemDetail ? (

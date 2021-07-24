@@ -12,14 +12,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   paper: {
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    border: "2px solid",
     "&:hover": {
-      border: "2px solid #3f51b5",
+      border: "5px solid #3f51b5",
       "& h3": {
-        borderTopColor: "#3f51b5",
+        borderTop: "5px solid #3f51b5",
       },
     },
   },
@@ -39,7 +39,7 @@ const ItemPaper = ({ item, handleItemDetail }) => {
 
   return (
     <div className={classes.itemRoot} onClick={() => handleItemDetail(item)}>
-      <Paper elevation={3} className={classes.paper}>
+      <Paper elevation={7} className={classes.paper}>
         <img src={item.imgBase64} alt={item.title} width="100%" />
         <h3 className={classes.paperTitle}>{item.title}</h3>
       </Paper>

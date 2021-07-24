@@ -44,6 +44,7 @@ function App() {
         <ItemList
           items={items}
           setItems={setItems}
+          setPending={setPending}
           handleItemList={handleItemList}
         />
       ) : (
