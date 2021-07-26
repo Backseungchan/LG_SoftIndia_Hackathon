@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     margin: "0px",
-    borderTop: "2px solid",
   },
 }));
 
