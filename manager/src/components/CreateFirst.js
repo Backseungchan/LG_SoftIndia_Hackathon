@@ -26,7 +26,7 @@ const CreateFirst = ({
         disabled={isDisableBtn}
         onClick={handleIsDescription}
       >
-        Create Description
+        Go to Create Description
       </Button>
     </>
   );

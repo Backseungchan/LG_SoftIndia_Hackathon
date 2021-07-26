@@ -2,6 +2,8 @@ import { makeStyles } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import CreateIcon from "@material-ui/icons/Create";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import AlertDialog from "./common/AskDialog";
 
 const useStyles = makeStyles({
   detailHeader: {
@@ -11,25 +13,32 @@ const useStyles = makeStyles({
   },
 });
 
-const ItemDetailHeader = ({ item, handleDelete, handleUpdate }) => {
+const ItemDetailHeader = ({ item, isUpdate, handleDelete, handleUpdate }) => {
   const classes = useStyles();
   return (
     <div className={classes.detailHeader}>
-      <Button
-        variant="outlined"
-        color="secondary"
-        startIcon={<DeleteIcon />}
-        onClick={() => handleDelete(item._id)}
-      >
-        Delete
-      </Button>
+      <AlertDialog
+        btn={
+          <Button
+            variant="outlined"
+            color="secondary"
+            startIcon={<DeleteIcon />}
+          >
+            Delete
+          </Button>
+        }
+        title="Do you want to delete?"
+        content="Deleted data cannot be recovered."
+        action={() => handleDelete(item._id)}
+      />
+
       <Button
         variant="outlined"
         color="primary"
-        startIcon={<CreateIcon />}
+        startIcon={!isUpdate && <CreateIcon />}
         onClick={handleUpdate}
       >
-        Update
+        {!isUpdate ? "Update" : <ArrowBackIcon />}
       </Button>
     </div>
   );

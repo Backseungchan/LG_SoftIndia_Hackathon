@@ -46,12 +46,13 @@ const ItemDetail = ({ item, items, setItems, handleDelete }) => {
         <Paper elevation={3} className={classes.detailPaper}>
           <ItemDetailHeader
             item={item}
+            isUpdate={isUpdate}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
           />
           {!isUpdate ? (
             <>
-              <h2 style={{ marginTop: "0px" }}>TITLE</h2>
+              <h2>TITLE</h2>
               {item.title}
               <hr style={{ width: "100%", marginTop: "20px" }} />
               <h2>DESCRIPTION</h2>
