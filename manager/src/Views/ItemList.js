@@ -9,10 +9,11 @@ import * as API from "../api/index.js";
 
 const useStyles = makeStyles({
   listLayout: {
-    height: "100%",
+    height: "fit-content",
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
     gap: "50px",
+    paddingBottom: "30px",
   },
 });
 

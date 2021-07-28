@@ -46,16 +46,19 @@ const ItemDetail = ({ item, items, setItems, handleDelete }) => {
         <Paper elevation={3} className={classes.detailPaper}>
           <ItemDetailHeader
             item={item}
+            isUpdate={isUpdate}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
           />
           {!isUpdate ? (
             <>
-              <h2 style={{ marginTop: "0px" }}>TITLE</h2>
+              <h2>TITLE</h2>
               {item.title}
-              <hr style={{ width: "100%", marginTop: "20px" }} />
+              <hr style={{ width: "90%", marginTop: "20px" }} />
               <h2>DESCRIPTION</h2>
-              <pre style={{ fontFamily: "auto" }}>{item.description}</pre>
+              <pre style={{ fontFamily: "auto", width: "90%" }}>
+                {item.description}
+              </pre>
             </>
           ) : (
             <UpdateItem
