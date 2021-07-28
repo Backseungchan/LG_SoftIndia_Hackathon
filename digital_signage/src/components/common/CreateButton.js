@@ -9,7 +9,7 @@ const CreateButton = ({ btnName, closeIcon, btnAction, closeAction }) => {
         icon={closeIcon}
         onClick={closeAction}
         style={{ backgroundColor: "indianred", color: "white" }}
-      ></Button>
+       />
     </div>
   );
 };

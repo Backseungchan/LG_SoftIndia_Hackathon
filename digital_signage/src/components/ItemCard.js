@@ -3,7 +3,7 @@ import GridListImageItem from '@enact/moonstone/GridListImageItem';
 
 const ItemCard = ({ item, handleClickItem }) => {
   return (
-    <GridListImageItem 
+    <GridListImageItem
       source={item.imgBase64}
       caption={item.title}
       onClick={() => handleClickItem(true, item)}

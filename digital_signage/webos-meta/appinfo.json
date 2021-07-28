@@ -10,9 +10,10 @@
   "largeIcon": "icon-large.png",
   "uiRevision": 2,
   "requiredPermissions": [
-    "database.operation",
     "all",
     "time.query",
-    "activity.operation"
+    "activity.operation",
+    "tts.management",
+    "tts.operation"
   ]
 }

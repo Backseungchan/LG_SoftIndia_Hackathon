@@ -25,7 +25,7 @@ const MainHeaderBar = ({ handleShow }) => {
           zIndex: "1",
         }}
         onClick={() => handleHeader()}
-      ></Button>
+       />
       {Showing ? (
         <div
           style={{
@@ -39,7 +39,7 @@ const MainHeaderBar = ({ handleShow }) => {
               marginLeft: "100px",
               visibility: "hidden",
             }}
-          ></Button>
+           />
           <h1>WoongYaho</h1>
           <Button
             onClick={() => handleShow(false)}

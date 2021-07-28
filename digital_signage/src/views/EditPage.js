@@ -15,10 +15,10 @@ const EditPage = ({ items, setItems, handleShow, fetchData }) => {
     isShowItem && setSelectedItem(item);
   };
 
-  const handleDeleteItem = (id) => {
+  const handleDeleteItem = async (id) => {
+    await API.deleteData(id);
     const filterItems = items.filter((item) => item._id !== id);
     setItems(filterItems);
-    API.deleteData(id);
   };
 
   useEffect(() => {}, [items]);

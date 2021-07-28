@@ -5,6 +5,7 @@ import ShowPage from "../views/ShowPage";
 import EditPage from "../views/EditPage";
 import Spinner from '@enact/sandstone/Spinner';
 import styled from "styled-components";
+import LS2Request from '@enact/webos/LS2Request';
 
 import "./App.css";
 import * as API from "../api/index.js";
@@ -13,20 +14,26 @@ import Alert from "@enact/sandstone/Alert";
 const App = () => {
   const [items, setItems] = useState([]);
   const [Showing, setShowing] = useState(true);
-  const [pending, setPending] = useState(false);
-  
+  const [pending, setPending] = useState(true);
+
   useEffect(() => {
     fetchData();
   }, []);
 
   async function fetchData() {
-    setPending(true);
     const { data } = await API.getData();
-    setPending(false);
     setItems(data);
+    setPending(false);
   }
 
   const handleShow = (where) => {
+    new LS2Request().send({
+      service: 'luna://com.webos.service.tts',
+      method: 'speak',
+      parameters: {
+          "text": "Hello"
+      }
+  });
     setShowing(where);
   };
 
@@ -37,10 +44,10 @@ const App = () => {
     align-items: center;
     margin-bottom: 50px;
   `;
-  
+
   return (
     <div>
-      {pending && 
+      {pending &&
         <Alert open="True">
           <ItemLayout>
             <Spinner blockClickOn="container">Loading...</Spinner>

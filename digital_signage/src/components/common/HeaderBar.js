@@ -18,7 +18,7 @@ const HeaderBar = ({ handleShow, fetchData }) => {
           display: "hidden",
         }}
         icon="arrowhookleft"
-      ></Button>
+       />
       <Button
         onClick={() => fetchData()}
         icon="refresh"
