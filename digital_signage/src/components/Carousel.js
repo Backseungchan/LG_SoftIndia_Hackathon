@@ -27,7 +27,6 @@ const CarouselCard = ({ items }) => {
         if (e.data === "Found" && read === false && halt === false) {
           setHalt(true);
           setRead(true);
-          console.log(`${halt} ${read}`);
           client.send(JSON.stringify({response: true, text: items[index]?.description}));
         } 
         else if (e.data === "Done") {
