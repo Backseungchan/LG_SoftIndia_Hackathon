@@ -18,7 +18,7 @@ const init = {
   description: "",
 };
 
-const CreateSecond = ({ input, setInput, handleIsSecond, handelSetInput, handleIsDescription }) => {
+const CreateSecond = ({ input, setInput, handleIsSecond, handelSetInput }) => {
   const classes = useStyles();
   const [isDisableBtn, setIsDisableBtn] = useState(true);
 
@@ -30,7 +30,7 @@ const CreateSecond = ({ input, setInput, handleIsSecond, handelSetInput, handleI
   const handleBack = () => {
     setInput(init);
     handleIsSecond();
-  }
+  };
 
   return (
     <>
