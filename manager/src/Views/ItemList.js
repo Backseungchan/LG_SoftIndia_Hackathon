@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
     gap: "50px",
-    paddingBottom: "30px",
+    paddingBottom: "50px"
   },
 });
 
@@ -59,6 +59,7 @@ const ItemList = ({ items, setItems, setPending, handleItemList }) => {
         items={items}
         setItems={setItems}
         handleDelete={handleDelete}
+        setPending={setPending}
       />
     </>
   );

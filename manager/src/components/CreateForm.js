@@ -23,6 +23,7 @@ const CreateForm = ({
   disableBtn,
   handleSubmit,
   handelSetInput,
+  handleIsSecond,
   handleIsDescription,
 }) => {
   const classes = useStyles(isSecond);
@@ -44,6 +45,8 @@ const CreateForm = ({
       ) : (
         <CreateSecond
           input={input}
+          setInput={setInput}
+          handleIsSecond={handleIsSecond}
           handelSetInput={handelSetInput}
           handleIsDescription={handleIsDescription}
         />

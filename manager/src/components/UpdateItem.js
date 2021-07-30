@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-const UpdateItem = ({ item, items, setItems, handleUpdate }) => {
+const UpdateItem = ({ item, items, setItems, handleUpdate, setPending }) => {
   const classes = useStyles();
   const [input, setInput] = useState(item);
   const handelChange = (e) => {
@@ -25,14 +25,15 @@ const UpdateItem = ({ item, items, setItems, handleUpdate }) => {
     setInput({ ...input, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleUpdateSubmit = async (e) => {
     e.preventDefault();
-    
+    setPending(true);
+    setPending(false);
     handleUpdate();
   };
 
   return (
-    <form className={classes.updateForm} onSubmit={handleSubmit}>
+    <form className={classes.updateForm} onSubmit={handleUpdateSubmit}>
       <h2 style={{ marginTop: "0px" }}>TITLE</h2>
       <TextField
         name="title"

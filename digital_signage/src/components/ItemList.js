@@ -8,11 +8,10 @@ const ItemList = ({ handleClickItem, items }) => {
     <Scroller>
       <div
         style={{
+          height: "fit-content",
           display: "grid",
           gridTemplateColumns: "1fr 1fr 1fr",
           gap: "50px",
-          width: "96%",
-          height: "85vh",
         }}
       >
         {items.map((item, index) => (

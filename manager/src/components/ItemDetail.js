@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ItemDetail = ({ item, items, setItems, handleDelete }) => {
+const ItemDetail = ({ item, items, setItems, handleDelete, setPending }) => {
   const classes = useStyles();
   const [isUpdate, setIsUpdate] = useState(false);
 
@@ -67,6 +67,7 @@ const ItemDetail = ({ item, items, setItems, handleDelete }) => {
               setItems={setItems}
               handleDelete={handleDelete}
               handleUpdate={handleUpdate}
+              setPending={setPending}
             />
           )}
         </Paper>

@@ -56,6 +56,8 @@ const CreateItem = ({ handleItemList, setPending, items, setItems }) => {
     setIsSecond(!isSecond);
   };
 
+  const handleIsSecond = () => setIsSecond(!isSecond);
+
   const handelSetInput = (e) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
@@ -83,6 +85,7 @@ const CreateItem = ({ handleItemList, setPending, items, setItems }) => {
               setInput={setInput}
               handleSubmit={handleSubmit}
               handelSetInput={handelSetInput}
+              handleIsSecond={handleIsSecond}
               handleIsDescription={handleIsDescription}
             />
           </Paper>
