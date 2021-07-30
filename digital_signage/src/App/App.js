@@ -5,7 +5,6 @@ import ShowPage from "../views/ShowPage";
 import EditPage from "../views/EditPage";
 import Spinner from '@enact/sandstone/Spinner';
 import styled from "styled-components";
-import LS2Request from '@enact/webos/LS2Request';
 
 import "./App.css";
 import * as API from "../api/index.js";
@@ -27,13 +26,6 @@ const App = () => {
   }
 
   const handleShow = (where) => {
-    new LS2Request().send({
-      service: 'luna://com.webos.service.tts',
-      method: 'speak',
-      parameters: {
-          "text": "Hello"
-      }
-  });
     setShowing(where);
   };
 

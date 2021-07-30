@@ -12,7 +12,7 @@ export const speak = (text, success, failure) => {
         service: 'luna://com.webos.service.tts',
         method: 'speak',
         parameters: {
-            "text": `${text}`
+            "text": text
         },
         onSuccess: success,
         onFailure: failure
