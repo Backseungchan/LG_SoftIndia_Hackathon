@@ -50,8 +50,8 @@ const CreateItem = ({ handleItemList, setPending, items, setItems }) => {
     setPending(true);
     const bodyFormData = new FormData();
     bodyFormData.append("img_url", input.imgBase64);
-    // const res = await API.getImageOCR(bodyFormData);
-    // setInput({ ...input, description: res.data.content });
+    const res = await API.getImageOCR(bodyFormData);
+    setInput({ ...input, description: res.data.content });
     setPending(false);
     setIsSecond(!isSecond);
   };
