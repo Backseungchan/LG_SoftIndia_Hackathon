@@ -8,6 +8,8 @@ const HeaderBar = ({ handleShow, fetchData }) => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        paddingBottom: "30px",
+        paddingTop: "30px",
       }}
     >
       <Button
@@ -18,7 +20,7 @@ const HeaderBar = ({ handleShow, fetchData }) => {
           display: "hidden",
         }}
         icon="arrowhookleft"
-       />
+      />
       <Button
         onClick={() => fetchData()}
         icon="refresh"
