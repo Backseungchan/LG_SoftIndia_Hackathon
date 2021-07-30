@@ -58,6 +58,7 @@ const ItemList = ({ items, setItems, setPending, handleItemList }) => {
         items={items}
         setItems={setItems}
         handleDelete={handleDelete}
+        setPending={setPending}
       />
     </>
   );
