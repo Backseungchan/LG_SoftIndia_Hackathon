@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
     position: "absolute",
-    right: "20%",
+    right: "5%",
   },
 }));
 
