@@ -44,6 +44,7 @@ const CreateForm = ({
       ) : (
         <CreateSecond
           input={input}
+          setInput={setInput}
           handelSetInput={handelSetInput}
           handleIsDescription={handleIsDescription}
         />

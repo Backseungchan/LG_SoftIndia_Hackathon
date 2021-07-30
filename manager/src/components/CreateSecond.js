@@ -12,7 +12,13 @@ const useStyles = makeStyles({
   },
 });
 
-const CreateSecond = ({ input, handelSetInput, handleIsDescription }) => {
+const init = {
+  title: "",
+  imgBase64: "",
+  description: "",
+};
+
+const CreateSecond = ({ input, setInput, handelSetInput, handleIsDescription }) => {
   const classes = useStyles();
   const [isDisableBtn, setIsDisableBtn] = useState(true);
 
@@ -21,6 +27,11 @@ const CreateSecond = ({ input, handelSetInput, handleIsDescription }) => {
     else setIsDisableBtn(true);
   }, [input]);
 
+  const handleBack = () => {
+    setInput(init);
+    handleIsDescription();
+  }
+
   return (
     <>
       <div style={{ width: "100%" }}>
@@ -28,7 +39,7 @@ const CreateSecond = ({ input, handelSetInput, handleIsDescription }) => {
           variant="outlined"
           color="primary"
           style={{ left: "5%" }}
-          onClick={handleIsDescription}
+          onClick={handleBack}
         >
           <ArrowBackIcon />
         </Button>
