@@ -1,7 +1,7 @@
 # LG_SoftIndia_Hackathon
  
 ## Contributor
-<ul>
+<!-- <ul>
  <li>
   <a href="https://github.com/Backseungchan">
     <img src="https://avatars.githubusercontent.com/u/31721097?v=4">
@@ -22,4 +22,4 @@
     <img src="https://avatars.githubusercontent.com/u/33220404?v=4">
   </a>
  </li>
- </ul>
+ </ul> -->
