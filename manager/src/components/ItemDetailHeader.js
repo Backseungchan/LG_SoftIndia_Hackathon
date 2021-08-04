@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ItemDetailHeader = ({ item, isUpdate, handleDelete, handleUpdate }) => {
+const ItemDetailHeader = ({ item, handleDelete }) => {
   const classes = useStyles();
   return (
     <div className={classes.detailHeader}>
@@ -31,15 +31,6 @@ const ItemDetailHeader = ({ item, isUpdate, handleDelete, handleUpdate }) => {
         content="Deleted data cannot be recovered."
         action={() => handleDelete(item._id)}
       />
-
-      <Button
-        variant="outlined"
-        color="primary"
-        startIcon={!isUpdate && <CreateIcon />}
-        onClick={handleUpdate}
-      >
-        {!isUpdate ? "Update" : <ArrowBackIcon />}
-      </Button>
     </div>
   );
 };

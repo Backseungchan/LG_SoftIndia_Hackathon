@@ -4,7 +4,6 @@ import { Paper } from "@material-ui/core";
 
 import ItemDetailHeader from "./ItemDetailHeader";
 import ShowImage from "./common/ShowImage";
-import UpdateItem from "./UpdateItem";
 
 const useStyles = makeStyles((theme) => ({
   detailLayout: {
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ItemDetail = ({ item, items, setItems, handleDelete, setPending }) => {
+const ItemDetail = ({ item, handleDelete }) => {
   const classes = useStyles();
   const [isUpdate, setIsUpdate] = useState(false);
 
@@ -50,26 +49,13 @@ const ItemDetail = ({ item, items, setItems, handleDelete, setPending }) => {
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
           />
-          {!isUpdate ? (
-            <>
-              <h2>TITLE</h2>
-              {item.title}
-              <hr style={{ width: "90%", marginTop: "20px" }} />
-              <h2>DESCRIPTION</h2>
-              <pre style={{ fontFamily: "auto", width: "90%" }}>
-                {item.description}
-              </pre>
-            </>
-          ) : (
-            <UpdateItem
-              item={item}
-              items={items}
-              setItems={setItems}
-              handleDelete={handleDelete}
-              handleUpdate={handleUpdate}
-              setPending={setPending}
-            />
-          )}
+          <h2>TITLE</h2>
+          {item.title}
+          <hr style={{ width: "90%", marginTop: "20px" }} />
+          <h2>DESCRIPTION</h2>
+          <pre style={{ fontFamily: "auto", width: "90%" }}>
+            {item.description}
+          </pre>
         </Paper>
       </div>
     </div>
