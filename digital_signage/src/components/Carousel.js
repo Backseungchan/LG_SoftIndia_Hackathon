@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
-const client = new W3CWebSocket('ws://192.168.0.16:9998');
+const client = new W3CWebSocket('ws://220.66.217.52:9998');
 
 const CarouselCard = ({ items }) => {
   const [index, setIndex] = useState(0);
