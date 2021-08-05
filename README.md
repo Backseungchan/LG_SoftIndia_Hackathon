@@ -18,7 +18,6 @@ To help who are visually impaired benefit from digital signage, my team devised 
 
 - For manager to easily insert signage with description, my team used **Tesseract OCR**. System will extract text out of signage. Manager can edit this text and insert at digital signage.
 
-<br />
 
 ## System Architecture
 
