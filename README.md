@@ -31,6 +31,8 @@ To help who are visually impaired benefit from digital signage, my team devised 
 
 ![image](https://user-images.githubusercontent.com/33220404/128297930-eedc0529-9b17-4779-8ca2-13fd0103c0fb.png)
 
+![image](https://user-images.githubusercontent.com/33220404/128301168-6b6637ae-ad09-4afa-9135-5326b947857f.png)
+
 ![image](https://user-images.githubusercontent.com/33220404/128298584-8e65ca45-cb17-491c-ad2b-a61bc2e34509.png)
 
 ## Contributor
