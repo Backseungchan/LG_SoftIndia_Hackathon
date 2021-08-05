@@ -5,10 +5,8 @@ Digital signage is used widely these day. It is indeed a comfortable technology.
 
 To help who are visually impaired benefit from digital signage, my team devised smart digital signage. It will detect who are visually impaired, automatically speaks out the description for the current showing signage.
 
-<br />
 
 ## How to resolve the problem(Approach)
-<hr /><br />
 
 ![image](https://user-images.githubusercontent.com/33220404/128295502-29325dc4-fc36-4c1b-8e7f-6e7676898f74.png)
 
@@ -23,12 +21,10 @@ To help who are visually impaired benefit from digital signage, my team devised 
 <br />
 
 ## System Architecture
-<hr /><br />
 
 ![image](https://user-images.githubusercontent.com/33220404/128295556-c978a608-9378-4d65-b814-c434b27f40e8.png)
 
 ## Demo
-<hr /><br />
 
 ![image](https://user-images.githubusercontent.com/33220404/128298091-f2d08e64-95a7-4c65-9fe5-6b06f57e66fd.png)
 
@@ -39,7 +35,6 @@ To help who are visually impaired benefit from digital signage, my team devised 
 ![image](https://user-images.githubusercontent.com/33220404/128298584-8e65ca45-cb17-491c-ad2b-a61bc2e34509.png)
 
 ## Contributor
-<hr />
 <ul>
 <li>
   <a href="https://github.com/woong-jae">
