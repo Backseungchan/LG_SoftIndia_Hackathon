@@ -1,4 +1,4 @@
-### LG_SoftIndia_Hackathon
+### LG_SoftIndia_Hackathon - Gold Award
 # Smart Digital Signage (for visually impaired)
 
 Digital signage is used widely these day. It is indeed a comfortable technology. However, visually impaired cannot benefit from this technology.
